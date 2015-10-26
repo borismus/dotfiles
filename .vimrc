@@ -85,4 +85,10 @@ set hlsearch
 " Disable folding in markdown
 let g:vim_markdown_folding_disabled=1
 
+" Enable checkboxes and tags in VIM Outliner.
+let g:vo_modules_load = "checkbox:tags"
+
+" Make the double comma be the key.
+let maplocalleader = ',,'
+
 source ~/.vimrc-nerdtree
