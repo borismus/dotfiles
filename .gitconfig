@@ -1,0 +1,5 @@
+[user]
+name = Boris Smus
+email = boris@smus.com
+[push]
+	default = matching
