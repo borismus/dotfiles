@@ -144,11 +144,14 @@ alias t=todo.sh
 export PATH=$HOME/homebrew/bin:$PATH
 
 # Bagpipe for linux stuff.
-. $HOME/.bagpipe/setup.sh $HOME/.bagpipe linux_hostname
-export PATH=$HOME/bin:$PATH
+if [[ `uname` == 'Linux' ]]
+then
+  . $HOME/.bagpipe/setup.sh $HOME/.bagpipe linux_hostname
+  export PATH=$HOME/bin:$PATH
 
-. $HOME/.bagpipe/setup.sh $HOME/.bagpipe smus.mtv.corp.google.com
-export PATH=$HOME/bin:$PATH
+  . $HOME/.bagpipe/setup.sh $HOME/.bagpipe smus.mtv.corp.google.com
+  export PATH=$HOME/bin:$PATH
+fi
 
 # Go AppEngine.
 export PATH=$PATH:$HOME/Tools/go_appengine/
