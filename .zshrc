@@ -154,4 +154,4 @@ then
 fi
 
 # Go AppEngine.
-export PATH=$PATH:$HOME/Tools/go_appengine/
+#export PATH=$PATH:$HOME/Tools/go_appengine/
