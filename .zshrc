@@ -99,7 +99,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # NaCl Stuff ################
 
 # Setup NaCl root.
-export NACL_SDK_ROOT=$HOME/Tools/nacl_sdk/pepper_31/
+export NACL_SDK_ROOT=$HOME/Tools/nacl_sdk/pepper_46/
 export NACL_SDK_BIN=$NACL_SDK_ROOT/toolchain/mac_x86_newlib/bin/
 export NACL_DEBUG_ENABLE=1
 export PPAPI_BROWSER_DEBUG=1
@@ -150,5 +150,17 @@ export PATH=$HOME/bin:$PATH
 . $HOME/.bagpipe/setup.sh $HOME/.bagpipe smus.mtv.corp.google.com
 export PATH=$HOME/bin:$PATH
 
-# Go AppEngine.
-export PATH=$PATH:$HOME/Tools/go_appengine/
+# TensorFlow development.
+export CUDA_HOME=/usr/local/cuda
+export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
+export PATH="$CUDA_HOME/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/smus/Downloads/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/smus/Downloads/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc'
+fi
