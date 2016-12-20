@@ -143,15 +143,11 @@ alias t=todo.sh
 # Homebrew
 export PATH=$HOME/homebrew/bin:$PATH
 
-# Bagpipe for linux stuff.
-if [[ `uname` == 'Linux' ]]
-then
-  . $HOME/.bagpipe/setup.sh $HOME/.bagpipe linux_hostname
-  export PATH=$HOME/bin:$PATH
-
-  . $HOME/.bagpipe/setup.sh $HOME/.bagpipe smus.mtv.corp.google.com
-  export PATH=$HOME/bin:$PATH
-fi
-
 # Go AppEngine.
 #export PATH=$PATH:$HOME/Tools/go_appengine/
+
+# CITC support.
+source /etc/bash_completion.d/g4d
+
+# Alias for blaze-run.
+alias blaze-run=/google/src/head/depot/google3/devtools/blaze/scripts/blaze-run.sh
