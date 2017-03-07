@@ -1,0 +1,1 @@
+let g:vo_modules_load = "checkbox:tags"
