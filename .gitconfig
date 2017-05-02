@@ -3,3 +3,9 @@ name = Boris Smus
 email = boris@smus.com
 [push]
 	default = matching
+[google]
+	lastUpdateCheck = 20151102000000
+[http]
+	cookiefile = /Users/smus/.gitcookies
+[alias]
+	glogin = credential-corpsso login

@@ -1,5 +1,7 @@
-" Set the guifont.
-set guifont=Inconsolata:h17
+" Set the guifont only on mac.
+if has("gui_macvim")
+  set guifont=Inconsolata:h17
+endif
 
 " Remove toolbar.
 set guioptions-=T
