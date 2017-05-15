@@ -150,9 +150,6 @@ then
   . $BAGPIPE_SETUP $HOME/.bagpipe smus.sea
 fi
 
-# CITC support.
-source /etc/bash_completion.d/g4d
-
 # Alias for blaze-run.
 alias blaze-run=/google/src/head/depot/google3/devtools/blaze/scripts/blaze-run.sh
 
