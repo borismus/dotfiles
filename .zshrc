@@ -150,16 +150,18 @@ source /etc/bash_completion.d/g4d
 alias blaze-run=/google/src/head/depot/google3/devtools/blaze/scripts/blaze-run.sh
 
 # TensorFlow development.
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 export CUDA_HOME=/usr/local/cuda
-export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
-export PATH="$CUDA_HOME/bin:$PATH"
+
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/smus/Downloads/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/smus/Downloads/google-cloud-sdk/path.zsh.inc'
-fi
+if [ -f '/usr/local/google/home/smus/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/google/home/smus/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f /Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc'
-fi
+if [ -f '/usr/local/google/home/smus/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/google/home/smus/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+alias cda="cd /google/src/cloud/smus/albacore/google3"
