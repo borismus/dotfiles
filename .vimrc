@@ -50,6 +50,18 @@ Plugin 'godlygeek/tabular'
 " A better markdown mode.
 Plugin 'plasticboy/vim-markdown'
 
+" Coffee script mode.
+Plugin 'kchmck/vim-coffee-script'
+
+" TypeScript mode.
+Plugin 'leafgarland/typescript-vim'
+
+" TypeScript auto-completion.
+Plugin 'Quramy/tsuquyomi'
+
+" CSS3 mode.
+Plugin 'hail2u/vim-css3-syntax'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -85,7 +97,7 @@ autocmd BufNewFile,BufRead * setlocal formatoptions+=ron
 set hlsearch
 
 " Disable folding in markdown.
-let g:vim_markdown_folding_disabled=1
+"let g:vim_markdown_folding_disabled=1
 
 " Fix indentation for markdown bullets.
 let g:vim_markdown_new_list_item_indent = 2
@@ -97,9 +109,13 @@ let maplocalleader = ',,'
 let vo_modules_load = "checkbox:tags"
 
 " Use the 'jscs' javascript checker.
-" let g:syntastic_javascript_checkers=['jscs']
+let g:syntastic_javascript_checkers=['jscs']
+" let g:syntastic_markdown_checkers=['proselint']
 
 " Python should be two spaces by default too.
 au FileType python setl sw=2 sts=2 et
+
+" Typescript stuff.
+nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
 
 source ~/.vimrc-nerdtree

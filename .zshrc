@@ -122,6 +122,9 @@ export PATH=/usr/local/homebrew/Cellar/ruby/1.9.3-p286/bin:$PATH
 # Node path.
 export PATH=$PATH:/usr/local/homebrew/share/npm/bin
 
+# Home bin path.
+export PATH=$HOME/bin:$PATH
+
 # Chromium use ninja.
 export GYP_GENERATORS=ninja
 
@@ -143,14 +146,12 @@ alias t=todo.sh
 # Homebrew
 export PATH=$HOME/homebrew/bin:$PATH
 
-# Bagpipe for linux stuff.
-if [[ `uname` == 'Linux' ]]
+# Bagpipe for p4 access on mac.
+if [[ `uname` != 'Linux' ]]
 then
-  . $HOME/.bagpipe/setup.sh $HOME/.bagpipe linux_hostname
-  export PATH=$HOME/bin:$PATH
-
-  . $HOME/.bagpipe/setup.sh $HOME/.bagpipe smus.mtv.corp.google.com
-  export PATH=$HOME/bin:$PATH
+  BAGPIPE_SETUP=$HOME/.bagpipe/setup.sh
+  if [[ -f $BAGPIPE_SETUP ]]
+  . $BAGPIPE_SETUP $HOME/.bagpipe smus.sea
 fi
 
 # TensorFlow development.
@@ -166,4 +167,9 @@ fi
 # The next line enables shell command completion for gcloud.
 if [ -f /Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
   source '/Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc'
+fi
+
+SRCFS_COMPLETION=/Library/GoogleCorpSupport/srcfs/shell_completion/enable_completion.sh
+if [ -f $SRCFS_COMPLETION ]; then
+  source $SRCFS_COMPLETION
 fi
