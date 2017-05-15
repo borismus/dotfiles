@@ -160,6 +160,8 @@ export CUDA_HOME=/usr/local/cuda
 
 # Updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/google/home/smus/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/google/home/smus/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/smus/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/smus/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
 
 # For Linux, a way to load npm without having to go through apt-get.
 export NVM_DIR="$HOME/.nvm"
