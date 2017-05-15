@@ -4,7 +4,7 @@
 #####
 #
 # Set the path proper
-path=( ~/bin /opt/local/bin 
+path=( ~/bin /opt/local/bin )
 /usr/local/bin /sbin /usr/sbin /usr/bin $path )
 
 # Set language
@@ -153,6 +153,12 @@ then
   if [[ -f $BAGPIPE_SETUP ]]
   . $BAGPIPE_SETUP $HOME/.bagpipe smus.sea
 fi
+
+# CITC support.
+source /etc/bash_completion.d/g4d
+
+# Alias for blaze-run.
+alias blaze-run=/google/src/head/depot/google3/devtools/blaze/scripts/blaze-run.sh
 
 # TensorFlow development.
 export CUDA_HOME=/usr/local/cuda
