@@ -4,8 +4,7 @@
 #####
 #
 # Set the path proper
-path=( ~/bin /opt/local/bin )
-/usr/local/bin /sbin /usr/sbin /usr/bin $path )
+path=( ~/bin /opt/local/bin /usr/local/bin /sbin /usr/sbin /usr/bin $path )
 
 # Set language
 export LC_ALL="en_US.UTF-8"
@@ -121,9 +120,6 @@ export PATH=/usr/local/homebrew/Cellar/ruby/1.9.3-p286/bin:$PATH
 
 # Node path.
 export PATH=$PATH:/usr/local/homebrew/share/npm/bin
-
-# Home bin path.
-export PATH=$HOME/bin:$PATH
 
 # Chromium use ninja.
 export GYP_GENERATORS=ninja
