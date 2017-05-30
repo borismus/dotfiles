@@ -1,6 +1,7 @@
 set nocompatible
 filetype off
 
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -49,8 +50,23 @@ Plugin 'godlygeek/tabular'
 " A better markdown mode.
 Plugin 'plasticboy/vim-markdown'
 
+" Coffee script mode.
+Plugin 'kchmck/vim-coffee-script'
+
+" TypeScript mode.
+Plugin 'leafgarland/typescript-vim'
+
+" TypeScript auto-completion.
+Plugin 'Quramy/tsuquyomi'
+
+" CSS3 mode.
+Plugin 'hail2u/vim-css3-syntax'
+
 call vundle#end()
 filetype plugin indent on
+
+" Enable syntax highlighting.
+syntax on
 
 " Set the color scheme.
 color oceanblack
@@ -73,22 +89,33 @@ set expandtab
 " Wrap at 80 chars.
 set textwidth=80
 
-" Continue comments after hitting o, O and <Enter>
-set formatoptions+=ro
-
-" Recognize numbered lists.
-set formatoptions+=n
+" Continue comments/bullets after hitting o, O and <Enter>, and also include
+" numbered lists.
+autocmd BufNewFile,BufRead * setlocal formatoptions+=ron
 
 " Enable vim highlighting.
 set hlsearch
 
-" Disable folding in markdown
-let g:vim_markdown_folding_disabled=1
+" Disable folding in markdown.
+"let g:vim_markdown_folding_disabled=1
 
-" Enable checkboxes and tags in VIM Outliner.
-let g:vo_modules_load = "checkbox:tags"
+" Fix indentation for markdown bullets.
+let g:vim_markdown_new_list_item_indent = 2
 
-" Make the double comma be the key.
+" VimOutliner: Make the double comma be the key.
 let maplocalleader = ',,'
+
+" VimOutliner: Enable checkboxes and tags only, but no smart paste.
+let vo_modules_load = "checkbox:tags"
+
+" Use the 'jscs' javascript checker.
+let g:syntastic_javascript_checkers=['jscs']
+" let g:syntastic_markdown_checkers=['proselint']
+
+" Python should be two spaces by default too.
+au FileType python setl sw=2 sts=2 et
+
+" Typescript stuff.
+nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
 
 source ~/.vimrc-nerdtree

@@ -1,6 +1,6 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 for dotfile in .*
 do
-  ln -sf $PWD/$dotfile $HOME
+  ln -sf $PWD/$dotfile $HOME/$dotfile
 done

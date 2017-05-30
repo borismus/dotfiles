@@ -4,8 +4,7 @@
 #####
 #
 # Set the path proper
-path=( ~/bin /opt/local/bin 
-/usr/local/bin /sbin /usr/sbin /usr/bin $path )
+path=( ~/bin /opt/local/bin /usr/local/bin /sbin /usr/sbin /usr/bin $path )
 
 # Set language
 export LC_ALL="en_US.UTF-8"
@@ -99,7 +98,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # NaCl Stuff ################
 
 # Setup NaCl root.
-export NACL_SDK_ROOT=$HOME/Tools/nacl_sdk/pepper_31/
+export NACL_SDK_ROOT=$HOME/Tools/nacl_sdk/pepper_46/
 export NACL_SDK_BIN=$NACL_SDK_ROOT/toolchain/mac_x86_newlib/bin/
 export NACL_DEBUG_ENABLE=1
 export PPAPI_BROWSER_DEBUG=1
@@ -143,15 +142,40 @@ alias t=todo.sh
 # Homebrew
 export PATH=$HOME/homebrew/bin:$PATH
 
-# Bagpipe for linux stuff.
-if [[ `uname` == 'Linux' ]]
+# Bagpipe for p4 access on mac.
+if [[ `uname` != 'Linux' ]]
 then
-  . $HOME/.bagpipe/setup.sh $HOME/.bagpipe linux_hostname
-  export PATH=$HOME/bin:$PATH
-
-  . $HOME/.bagpipe/setup.sh $HOME/.bagpipe smus.mtv.corp.google.com
-  export PATH=$HOME/bin:$PATH
+  BAGPIPE_SETUP=$HOME/.bagpipe/setup.sh
+  if [[ -f $BAGPIPE_SETUP ]]
+  . $BAGPIPE_SETUP $HOME/.bagpipe smus.sea
 fi
 
-# Go AppEngine.
-#export PATH=$PATH:$HOME/Tools/go_appengine/
+# Alias for blaze-run.
+alias blaze-run=/google/src/head/depot/google3/devtools/blaze/scripts/blaze-run.sh
+
+# TensorFlow development.
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64
+export CUDA_HOME=/usr/local/cuda
+
+# Updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/google/home/smus/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/google/home/smus/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/smus/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/smus/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+
+# For Linux, a way to load npm without having to go through apt-get.
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+if [ -f /Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc'
+fi
+
+# Mac SrcFS completion.
+SRCFS_COMPLETION=/Library/GoogleCorpSupport/srcfs/shell_completion/enable_completion.sh
+if [ -f $SRCFS_COMPLETION ]; then
+  source $SRCFS_COMPLETION
+fi
+
+# Handy aliases to do current work.
+alias cda="cd /google/src/cloud/smus/albacore/google3"
