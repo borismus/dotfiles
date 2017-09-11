@@ -180,3 +180,4 @@ fi
 
 # Handy aliases to do current work.
 alias cda="cd /google/src/cloud/smus/albacore/google3"
+alias cdc="cd ~/Projects/cerebra"
