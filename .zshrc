@@ -4,8 +4,7 @@
 #####
 #
 # Set the path proper
-path=( ~/bin /opt/local/bin 
-/usr/local/bin /sbin /usr/sbin /usr/bin $path )
+path=( ~/bin /opt/local/bin /usr/local/bin /sbin /usr/sbin /usr/bin $path )
 
 # Set language
 export LC_ALL="en_US.UTF-8"
@@ -143,23 +142,41 @@ alias t=todo.sh
 # Homebrew
 export PATH=$HOME/homebrew/bin:$PATH
 
-# CITC support.
-source /etc/bash_completion.d/g4d
+# Bagpipe for p4 access on mac.
+if [[ `uname` != 'Linux' ]]
+then
+  BAGPIPE_SETUP=$HOME/.bagpipe/setup.sh
+  if [[ -f $BAGPIPE_SETUP ]]
+  . $BAGPIPE_SETUP $HOME/.bagpipe smus.sea
+fi
 
 # Alias for blaze-run.
 alias blaze-run=/google/src/head/depot/google3/devtools/blaze/scripts/blaze-run.sh
 
 # TensorFlow development.
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 export CUDA_HOME=/usr/local/cuda
-export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
-export PATH="$CUDA_HOME/bin:$PATH"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/smus/Downloads/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/smus/Downloads/google-cloud-sdk/path.zsh.inc'
-fi
+# Updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/google/home/smus/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/google/home/smus/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/smus/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/smus/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
+
+# For Linux, a way to load npm without having to go through apt-get.
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 if [ -f /Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
   source '/Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc'
 fi
+
+# Mac SrcFS completion.
+SRCFS_COMPLETION=/Library/GoogleCorpSupport/srcfs/shell_completion/enable_completion.sh
+if [ -f $SRCFS_COMPLETION ]; then
+  source $SRCFS_COMPLETION
+fi
+
+# Handy aliases to do current work.
+alias cda="cd /google/src/cloud/smus/albacore/google3"
+alias cdc="cd ~/Projects/cerebra"
