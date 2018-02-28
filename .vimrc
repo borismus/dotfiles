@@ -116,6 +116,7 @@ let g:syntastic_javascript_checkers=['jscs']
 au FileType python setl sw=2 sts=2 et
 
 " Typescript stuff.
-nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
+" Commented out because it totally breaks gvim.
+"nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
 
 source ~/.vimrc-nerdtree

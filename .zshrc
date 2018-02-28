@@ -180,3 +180,11 @@ fi
 # Handy aliases to do current work.
 alias cda="cd /google/src/cloud/smus/albacore/google3"
 alias cdc="cd ~/Projects/cerebra"
+
+export USB_DEVFS_PATH=/dev/bus/usb
+
+# For google app credentials.
+export GOOGLE_APPLICATION_CREDENTIALS=$HOME/babelfish-454519da7006.json
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
