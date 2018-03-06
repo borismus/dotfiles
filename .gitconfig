@@ -9,3 +9,5 @@ email = boris@smus.com
 	cookiefile = /Users/smus/.gitcookies
 [alias]
 	glogin = credential-corpsso login
+[credential]
+	helper = cache

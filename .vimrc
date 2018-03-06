@@ -91,7 +91,10 @@ set textwidth=80
 
 " Continue comments/bullets after hitting o, O and <Enter>, and also include
 " numbered lists.
-autocmd BufNewFile,BufRead * setlocal formatoptions+=ron
+au FileType * setlocal formatoptions=jncrolq
+
+" Disable formatting of comments with gq in markdown.
+au FileType markdown setlocal formatoptions-=q
 
 " Enable vim highlighting.
 set hlsearch
@@ -116,6 +119,10 @@ let g:syntastic_javascript_checkers=['jscs']
 au FileType python setl sw=2 sts=2 et
 
 " Typescript stuff.
-nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
+" Commented out because it totally breaks gvim.
+"nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
+
+" Automatically change working directory to the file's path.
+set autochdir
 
 source ~/.vimrc-nerdtree
