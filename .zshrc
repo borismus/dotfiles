@@ -179,3 +179,7 @@ fi
 
 # Handy aliases to do current work.
 alias cda="cd /google/src/cloud/smus/albacore/google3"
+
+# Easier batch renaming.
+autoload -U zmv
+alias mmv='noglob zmv -W'
