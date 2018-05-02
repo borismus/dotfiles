@@ -57,7 +57,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'leafgarland/typescript-vim'
 
 " TypeScript auto-completion.
-Plugin 'Quramy/tsuquyomi'
+"Plugin 'Quramy/tsuquyomi'
 
 " CSS3 mode.
 Plugin 'hail2u/vim-css3-syntax'
@@ -96,6 +96,10 @@ au FileType * setlocal formatoptions=jncrolq
 " Disable formatting of comments with gq in markdown.
 au FileType markdown setlocal formatoptions-=q
 
+" Format options: auto wrap text, but don't include the leader.
+au FileType markdown setlocal formatoptions-=c
+au FileType markdown setlocal formatoptions+=t
+
 " Enable vim highlighting.
 set hlsearch
 
@@ -120,7 +124,7 @@ au FileType python setl sw=2 sts=2 et
 
 " Typescript stuff.
 " Commented out because it totally breaks gvim.
-"nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
+" nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
 
 " Automatically change working directory to the file's path.
 set autochdir
