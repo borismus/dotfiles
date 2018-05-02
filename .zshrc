@@ -179,7 +179,10 @@ fi
 
 # Handy aliases to do current work.
 alias cda="cd /google/src/cloud/smus/albacore/google3"
-alias cdc="cd ~/Projects/cerebra"
+
+# Easier batch renaming.
+autoload -U zmv
+alias mmv='noglob zmv -W'
 
 export USB_DEVFS_PATH=/dev/bus/usb
 
@@ -188,3 +191,6 @@ export USB_DEVFS_PATH=/dev/bus/usb
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# Cerebra project path.
+alias cdc="cd ~/Projects/cerebra"
