@@ -147,7 +147,9 @@ if [[ `uname` != 'Linux' ]]
 then
   BAGPIPE_SETUP=$HOME/.bagpipe/setup.sh
   if [[ -f $BAGPIPE_SETUP ]]
-  . $BAGPIPE_SETUP $HOME/.bagpipe smus.sea
+  then
+    . $BAGPIPE_SETUP $HOME/.bagpipe smus.sea
+  fi
 fi
 
 # Alias for blaze-run.
