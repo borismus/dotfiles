@@ -194,3 +194,9 @@ export PATH=$PATH:$GOPATH/bin
 
 # Cerebra project path.
 alias cdc="cd ~/Projects/cerebra"
+
+# Support for g4d.
+source /etc/bash_completion.d/g4d
+
+# Support for Dart.
+export PATH=/usr/lib/google-dartlang/bin:${PATH}
