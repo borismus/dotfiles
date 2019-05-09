@@ -163,7 +163,11 @@ bar {
 }
 
 # Auto-lock the screen.
-exec --no-startup-id xautolock -time 1 -locker "/usr/share/goobuntu-desktop-files/xsecurelock.sh" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING SCREEN IN 30 SECONDS'"
+exec --no-startup-id xautolock -time 3 -locker "/usr/share/goobuntu-desktop-files/xsecurelock.sh" -notify 180 -notifier "notify-send -u critical -t 10000 -- 'LOCKING SCREEN IN 3 MINUTES'"
 
 bindsym $mod+o exec i3lock -c 000000 && xset dpms force off
 
+# Player controls (mod + zxc)
+bindsym $mod+z exec playerctl previous
+bindsym $mod+x exec playerctl play-pause
+bindsym $mod+c exec playerctl next
