@@ -181,3 +181,6 @@ bindsym --release button2 kill
 
 # Clicking the middle button with modifier anywhere on a window should kill it.
 bindsym --whole-window $mod+button2 kill
+
+# Select an area of the screen for screenshots.
+bindsym Print exec gnome-screenshot -a
