@@ -29,6 +29,9 @@ Plugin 'kien/ctrlp.vim'
 " JavaScript bundle for vim, this bundle provides syntax and indent plugins.
 Plugin 'pangloss/vim-javascript'
 
+" JSX formatting.
+Plugin 'mxw/vim-jsx'
+
 " One colorscheme pack to rule them all!
 Plugin 'flazz/vim-colorschemes'
 
@@ -55,6 +58,9 @@ Plugin 'kchmck/vim-coffee-script'
 
 " TypeScript mode.
 Plugin 'leafgarland/typescript-vim'
+
+" JSX in TypeScript.
+Plugin 'peitalin/vim-jsx-typescript'
 
 " TypeScript auto-completion.
 "Plugin 'Quramy/tsuquyomi'
