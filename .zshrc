@@ -157,7 +157,6 @@ alias blaze-run=/google/src/head/depot/google3/devtools/blaze/scripts/blaze-run.
 
 # TensorFlow development.
 export PATH=/usr/local/cuda/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 export CUDA_HOME=/usr/local/cuda
 
 # Updates PATH for the Google Cloud SDK.
@@ -196,3 +195,15 @@ export PATH=$PATH:$GOPATH/bin
 
 # Cerebra project path.
 alias cdc="cd ~/Projects/cerebra"
+
+# Support for g4d.
+source /etc/bash_completion.d/g4d
+
+# Support for Dart.
+export PATH=/usr/lib/google-dartlang/bin:${PATH}
+
+# On Linux, alias open to nautilus.
+if [[ `uname` == 'Linux' ]]
+then
+  alias open='nautilus'
+fi
