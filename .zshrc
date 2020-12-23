@@ -106,9 +106,6 @@ export NACL_PLUGIN_DEBUG=1
 export NACL_PPAPI_PROXY_DEBUG=1
 export PATH=$PATH:$NACL_SDK_ROOT/toolchain/mac_pnacl/bin
 
-# GSUtil Stuff.
-#export PATH=${PATH}:$HOME/Tools/gsutil
-
 # Setup depot tools for Chrome-related projects.
 export PATH=$PATH:$HOME/Tools/depot_tools
 
@@ -196,9 +193,6 @@ export PATH=$PATH:$GOPATH/bin
 # Cerebra project path.
 alias cdc="cd ~/Projects/cerebra"
 
-# Support for g4d.
-source /etc/bash_completion.d/g4d
-
 # Support for Dart.
 export PATH=/usr/lib/google-dartlang/bin:${PATH}
 
@@ -207,3 +201,15 @@ if [[ `uname` == 'Linux' ]]
 then
   alias open='nautilus'
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/smus/Tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/smus/Tools/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/smus/Tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/smus/Tools/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+
+path=( ~/homebrew/anaconda3/bin $path )
+
+source ~/.zsh_secrets

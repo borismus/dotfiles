@@ -10,7 +10,7 @@ set guioptions-=T
 set guioptions-=r
 
 " Always open NERDTree.
-autocmd VimEnter * NERDTree %
+autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 
 " Set the color scheme.

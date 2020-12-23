@@ -128,5 +128,3 @@ au FileType python setl sw=2 sts=2 et
 
 " Automatically change working directory to the file's path.
 set autochdir
-
-source ~/.vimrc-nerdtree
