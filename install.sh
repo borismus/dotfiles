@@ -8,3 +8,5 @@ do
   fi
   ln -sf $PWD/$dotfile $HOME/$dotfile
 done
+
+ln -s $PWD/bin $HOME/bin
