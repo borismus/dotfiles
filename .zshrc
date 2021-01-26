@@ -106,9 +106,6 @@ export NACL_PLUGIN_DEBUG=1
 export NACL_PPAPI_PROXY_DEBUG=1
 export PATH=$PATH:$NACL_SDK_ROOT/toolchain/mac_pnacl/bin
 
-# GSUtil Stuff.
-#export PATH=${PATH}:$HOME/Tools/gsutil
-
 # Setup depot tools for Chrome-related projects.
 export PATH=$PATH:$HOME/Tools/depot_tools
 
@@ -154,7 +151,6 @@ alias blaze-run=/google/src/head/depot/google3/devtools/blaze/scripts/blaze-run.
 
 # TensorFlow development.
 export PATH=/usr/local/cuda/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 export CUDA_HOME=/usr/local/cuda
 
 # Updates PATH for the Google Cloud SDK.
@@ -199,7 +195,27 @@ export WINEARCH=win32
 export WINEPREFIX=~/.wine_d2
 alias d2="cd ~/.wine_d2/drive_c/Program\ Files/Diablo\ II && wine game.exe -w -3dfx -nofixaspect"
 
-
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /Users/boris/.nvm/versions/node/v13.10.1/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/boris/.nvm/versions/node/v13.10.1/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
+
+# Support for Dart.
+export PATH=/usr/lib/google-dartlang/bin:${PATH}
+
+# On Linux, alias open to nautilus.
+if [[ `uname` == 'Linux' ]]
+then
+  alias open='nautilus'
+fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/smus/Tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/smus/Tools/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/smus/Tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/smus/Tools/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+
+path=( ~/homebrew/anaconda3/bin $path )
+
+source ~/.zsh_secrets

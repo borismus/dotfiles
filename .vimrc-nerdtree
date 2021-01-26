@@ -1,5 +1,6 @@
 " Close all open buffers on entering a window if the only buffer that's left is
 " the NERDTree buffer
+set rtp+=~/.vim/bundle/nerdtree
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 function s:CloseIfOnlyNerdTreeLeft()
   if exists("t:NERDTreeBufName")
