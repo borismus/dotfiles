@@ -10,6 +10,7 @@ import optparse
 
 parser = optparse.OptionParser()
 parser.add_option('--days_ago', type='int')
+parser.add_option('--verbose', action='store_true', dest='verbose')
 
 ACCESS_TOKEN = None
 ARTICLES_DIR = 'Articles'
@@ -42,7 +43,10 @@ def get_highlights_for_book(book_id):
       params=querystring
   )
 
-  highlights_data = response.json()['results']
+  json = response.json()
+  if not 'results' in json:
+    return None
+  highlights_data = json['results']
   return highlights_data
 
 def get_filename(book):
@@ -124,9 +128,16 @@ if __name__ == '__main__':
   mkdirs()
   books = get_books(date_delta)
   for book in books:
+    if options.verbose:
+      title = book['title']
+      print(f'Processing book {title}')
     filename = get_filename(book)
     path = os.path.join(root, filename)
     highlights = get_highlights_for_book(book['id'])
+    if not highlights:
+      if options.verbose:
+        print(f'No highlights for {title}')
+      continue
     out = format_book(book, highlights)
 
     f = open(path, 'w')

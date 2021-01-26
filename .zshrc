@@ -210,6 +210,4 @@ if [ -f '/Users/smus/Tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/User
 
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 
-path=( ~/homebrew/anaconda3/bin $path )
-
 source ~/.zsh_secrets
