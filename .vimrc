@@ -57,7 +57,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'leafgarland/typescript-vim'
 
 " TypeScript auto-completion.
-"Plugin 'Quramy/tsuquyomi'
+Plugin 'Quramy/tsuquyomi'
 
 " CSS3 mode.
 Plugin 'hail2u/vim-css3-syntax'
