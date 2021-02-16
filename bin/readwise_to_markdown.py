@@ -62,7 +62,7 @@ def get_filename(book):
     prefix = ARTICLES_DIR
   else:
     prefix = UNKNOWN_DIR
-  return f'{prefix}/{date_iso} - {title}.md'
+  return f'{prefix}/{title}.md'
 
 
 def get_unixtime(book):
