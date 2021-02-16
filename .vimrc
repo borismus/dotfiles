@@ -63,7 +63,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
 
 " TypeScript auto-completion.
-"Plugin 'Quramy/tsuquyomi'
+Plugin 'Quramy/tsuquyomi'
 
 " CSS3 mode.
 Plugin 'hail2u/vim-css3-syntax'

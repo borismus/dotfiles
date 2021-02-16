@@ -133,9 +133,6 @@ export PATH=$PATH:/usr/local/homebrew/Cellar/go/1.2.1/libexec/bin
 # Tex
 export PATH=$PATH:/usr/texbin
 
-# todo.txt
-alias t=todo.sh
-
 # Homebrew
 export PATH=$HOME/homebrew/bin:$PATH
 
@@ -192,6 +189,15 @@ export PATH=$PATH:$GOPATH/bin
 
 # Cerebra project path.
 alias cdc="cd ~/Projects/cerebra"
+
+# Windows emulator stuff.
+export WINEARCH=win32
+export WINEPREFIX=~/.wine_d2
+alias d2="cd ~/.wine_d2/drive_c/Program\ Files/Diablo\ II && wine game.exe -w -3dfx -nofixaspect"
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /Users/boris/.nvm/versions/node/v13.10.1/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/boris/.nvm/versions/node/v13.10.1/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
 
 # Support for Dart.
 export PATH=/usr/lib/google-dartlang/bin:${PATH}
