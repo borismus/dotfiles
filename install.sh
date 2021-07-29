@@ -6,6 +6,10 @@ do
   if [[ "$dotfile" == ".git" ]]; then
     continue
   fi
+  # Do not copy the .gitignore file.
+  if [[ "$dotfile" == ".gitignore" ]]; then
+    continue
+  fi
   ln -sf $PWD/$dotfile $HOME/$dotfile
 done
 
