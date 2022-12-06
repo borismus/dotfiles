@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+date &>> ~/cron_heartbeat.log

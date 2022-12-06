@@ -7,6 +7,7 @@ import requests
 import sys
 import time
 import optparse
+import pathlib
 
 parser = optparse.OptionParser()
 parser.add_option('--days_ago', type='int')
@@ -50,12 +51,8 @@ def get_highlights_for_book(book_id):
   return highlights_data
 
 def get_filename(book):
-  date_str = book['last_highlight_at']
-  date = dateutil.parser.isoparse(date_str)
-  date_iso = date.strftime('%Y-%m-%d')
-  title = book['title']
+  title = get_title_with_author(book)
   category = book['category']
-  print(title, date_iso)
   if category == 'books':
     prefix = BOOKS_DIR
   elif category == 'articles':
@@ -65,20 +62,37 @@ def get_filename(book):
   return f'{prefix}/{title}.md'
 
 
+def get_date_iso(book):
+  date_str = book['last_highlight_at']
+  date = dateutil.parser.isoparse(date_str)
+  date_iso = date.strftime('%Y-%m-%d')
+  #date_year_month = date.strftime('%Y-%m')
+  return date_iso
+
 def get_unixtime(book):
   date_str = book['last_highlight_at']
   date = dateutil.parser.isoparse(date_str)
   unixtime = time.mktime(date.timetuple())
   return unixtime
 
-def format_book(book, highlights):
+def get_title_with_author(book):
   title = book['title']
+  author = book['author']
+  if author:
+    title += f' - {author}'
+  return title
+
+def format_book(book, highlights):
+  title = get_title_with_author(book)
   url = book['highlights_url']
   out = f'''# {title}
+
+(read {get_date_iso(book)})
 
 <{url}>
 
 '''
+  highlights.reverse()
   for highlight in highlights:
     text = highlight['text']
     note = highlight['note']
@@ -93,6 +107,9 @@ def format_book(book, highlights):
 
   return out
 
+def mkdir(subdir):
+  dirpath = os.path.join(root, subdir)
+  pathlib.Path(dirpath).mkdir(parents=True, exist_ok=True)
 
 def mkdirs():
   # Make the subdirectories.
@@ -145,3 +162,4 @@ if __name__ == '__main__':
     f.close()
     mtime = get_unixtime(book)
     os.utime(path, (mtime, mtime))
+    print(f'Writing note {filename}')
