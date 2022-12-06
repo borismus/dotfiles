@@ -122,7 +122,8 @@ export PATH=$PATH:/usr/local/homebrew/share/npm/bin
 export GYP_GENERATORS=ninja
 
 # P4 config for mac.
-P4CONFIG='.p4config'
+export P4CONFIG=.p4config
+export P4EDITOR=vim
 
 # Pebble development.
 export PATH=$PATH:~/Tools/pebble-dev/PebbleSDK-2.0-BETA5/bin
@@ -135,16 +136,6 @@ export PATH=$PATH:/usr/texbin
 
 # Homebrew
 export PATH=$HOME/homebrew/bin:$PATH
-
-# Bagpipe for p4 access on mac.
-if [[ `uname` != 'Linux' ]]
-then
-  BAGPIPE_SETUP=$HOME/.bagpipe/setup.sh
-  if [[ -f $BAGPIPE_SETUP ]]
-  then
-    . $BAGPIPE_SETUP $HOME/.bagpipe smus.sea
-  fi
-fi
 
 # Alias for blaze-run.
 alias blaze-run=/google/src/head/depot/google3/devtools/blaze/scripts/blaze-run.sh
@@ -208,12 +199,17 @@ then
   alias open='nautilus'
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/smus/Tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/smus/Tools/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/smus/Tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/smus/Tools/google-cloud-sdk/completion.zsh.inc'; fi
-
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 
 source ~/.zsh_secrets
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/smus/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/smus/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/smus/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+[[ -e "/Users/smus/mdproxy/data/mdproxy_zshrc" ]] && source "/Users/smus/mdproxy/data/mdproxy_zshrc" # MDPROXY-ZSHRC
+
+export LINUX_HOSTNAME=smus.sea.corp.google.com
+
+alias fg3="/usr/local/lib/google-flutter/bin/flutter.sar"

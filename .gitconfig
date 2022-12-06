@@ -11,3 +11,5 @@ email = boris@smus.com
 	glogin = credential-corpsso login
 [credential]
 	helper = cache
+[init]
+	defaultBranch = -m
