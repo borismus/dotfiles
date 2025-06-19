@@ -1,4 +1,0 @@
-#!/bin/zsh
-
-~/Projects/note-vault-utils/cron.sh &>> ~/vault_deploy.log
-READWISE_ACCESS_TOKEN=eBmXK6PiCgtnARPXndLyvzEHUhPj6gIeSx7mlBTFrM263u85tL6abSCnZgWjhUasMq0zPiNCJGoIe99pdSFPlCCEKHTqodqboHvaiqkWnrKML5yLHZ8zoFtELeF88yIEI0SETy3gK9C9mS4b79g3XDeC1xlG5YVh1mQKFD7FsHVTmmCZpHEHP1uIr1WtHjzMrDla5hU1 ~/bin/readwise_to_markdown.py ~/Notes/Highlights/ --days_ago=3 >> ~/cron.log
